@@ -15,12 +15,12 @@
 	<tr>
 		<td colspan=3>
 			<h1>Io Programming Guide</h1>
-			
+
 		</td>
 	</tr>
 	<tr>
 		<td></td><td></td><td>
-			
+
 <p>
 	<br>
 	<br>
@@ -158,7 +158,7 @@ Simplicity is the essence of happiness.<br>
 </tr><tr><td colspan=3 class=sectionDivider></td></tr>
 <tr><td align=right><a name="Introduction-Overview"></a><h3>Overview</h3>
 </td><td></td><td>
-	
+
 Io is a dynamic prototype-based programming language. The ideas in Io are mostly inspired by Smalltalk[1] (all values are objects), Self[2] (prototype-based), NewtonScript[3] (differential inheritance), Act1[4] (actors and futures for concurrency), Lisp[5] (code is a runtime inspectable / modifiable tree) and Lua[6] (small, embeddable).
 
 </tr><tr><td colspan=3 class=sectionDivider></td></tr>
@@ -204,8 +204,8 @@ practical
 <tr><td align=right>
 	<a name="Introduction-Downloading"></a><h3>Downloading</h3>
 </td><td></td><td>
-	
-<div class=indent> 
+
+<div class=indent>
 
 Io distributions are available at:
 <pre><a href="http://iolanguage.com">http://iolanguage.com</a></pre>
@@ -226,7 +226,7 @@ First compile the Io vm:
 
 <pre>
 make vm
-sudo make install 
+sudo make install
 </pre>
 
 
@@ -250,21 +250,21 @@ or:
 sudo make port
 </pre>
 
-Depending on which package installer you use. 
-(<a href="http://macports.org">port</a> is for OSX) 
+Depending on which package installer you use.
+(<a href="http://macports.org">port</a> is for OSX)
 
 <h4>Compiling Addons</h4>
 
 To build, from the top folder, run:
 
 <pre>
-make 
+make
 </pre>
 
 Binaries will be placed in the _build/binaries subfolder. To install:
 
 <pre>
-sudo make install 
+sudo make install
 </pre>
 
 or, if you'd like the install to simply link to your development folder:
@@ -318,8 +318,8 @@ make doc
 	<a name="Introduction-Binaries"></a>
 	<h3>Binaries</h3>
 </td><td></td><td>
-	
-Io builds two executables and places them in the binaries folder. They are: 
+
+Io builds two executables and places them in the binaries folder. They are:
 
 <pre>
 io_static
@@ -334,9 +334,9 @@ The io_static executable contains the vm with a minimal set of primitives all st
 	<a name="Introduction-Running-Scripts"></a>
 	<h3>Running&nbsp;Scripts</h3>
 </td><td></td><td>
-	
 
-An example of running a script: 
+
+An example of running a script:
 
 <pre>
 io samples/misc/HelloWorld.io
@@ -350,9 +350,9 @@ There is no main() function or object that gets executed first in Io. Scripts ar
 	<a name="Introduction-Interactive-Mode"></a>
 	<h3>Interactive&nbsp;Mode</h3>
 </td><td></td><td>
-	
 
-Running: 
+
+Running:
 
 <pre>
 ./_build/binaries/io
@@ -364,7 +364,7 @@ Or, if Io is installed, running:
 io
 </pre>
 
-will open the Io interpreter prompt. 
+will open the Io interpreter prompt.
 <p>
 You can evaluate code by entering it directly. Example:
 
@@ -373,7 +373,7 @@ Io> "Hello world!" println
 ==> Hello world!
 </pre>
 
-Expressions are evaluated in the context of the Lobby: 
+Expressions are evaluated in the context of the Lobby:
 
 <pre>
 Io> print
@@ -391,7 +391,7 @@ If you have a .iorc file in your home folder, it will be evaled before the inter
 	<a name="Introduction-Inspecting-Objects"></a>
 	<h3>Inspecting&nbsp;objects</h3>
 </td><td></td><td>
-	
+
 You can get a list of the slots of an object like this:
 
 <pre>
@@ -493,10 +493,10 @@ System launchPath
 <tr><td align=right>
 	<h2>Syntax<a name="Syntax"></a></h2>
 </td><td></td><td>
-	
+
 <br><br><br><br><br>
-	
-	
+
+
 <div class=indent>
 
 <!--
@@ -530,7 +530,7 @@ For performance reasons, String and Number literal messages have their results c
 	<a name="Syntax-Messages"></a>
 	<h3>Messages</h3>
 </td><td></td><td>
-	
+
 
 Message arguments are passed as expressions and evaluated by the receiver. Selective evaluation of arguments can be used to implement control flow. Examples:
 
@@ -583,31 +583,31 @@ Like Self[2], Io's syntax does not distinguish between accessing a slot containi
 </td><td></td><td>
 
 
-An operator is just a message whose name contains no alphanumeric characters (other than ";", "_", '"' or ".") or is one of the following words: or, and, return. Example: 
+An operator is just a message whose name contains no alphanumeric characters (other than ";", "_", '"' or ".") or is one of the following words: or, and, return. Example:
 
 <pre>
 1 + 2
 </pre>
 
-This just gets compiled into the normal message: 
+This just gets compiled into the normal message:
 
 <pre>
 1 +(2)
 </pre>
 
-Which is the form you can use if you need to do grouping: 
+Which is the form you can use if you need to do grouping:
 
 <pre>
 1 +(2 * 4)
 </pre>
 
-Standard operators follow C's precedence order, so: 
+Standard operators follow C's precedence order, so:
 
 <pre>
 1 + 2 * 3 + 4
 </pre>
 
-Is parsed as: 
+Is parsed as:
 
 <pre>
 1 +(2 *(3)) +(4)
@@ -708,7 +708,7 @@ updateSlot("a", 1)
 
 </table>
 <p>
-	
+
 On Locals objects, updateSlot is overridden so it will update the slot in the object in which the method was activated if the slot is not found the locals. This is done so update assignments in methods don't require self to be an explicit target.
 
 
@@ -722,7 +722,7 @@ On Locals objects, updateSlot is overridden so it will update the slot in the ob
 </td><td></td><td>
 
 
-The following are examples of valid number formats: 
+The following are examples of valid number formats:
 
 <pre>
 123
@@ -735,7 +735,7 @@ The following are examples of valid number formats:
 123.456e2
 </pre>
 
-Hex numbers are also supported (in any casing): 
+Hex numbers are also supported (in any casing):
 
 <pre>
 0x0
@@ -750,15 +750,15 @@ Hex numbers are also supported (in any casing):
 	<a name="Syntax-Strings"></a>
 	<h3>Strings</h3>
 </td><td></td><td>
-	
 
-Strings can be defined surrounded by a single set of double quotes with escaped quotes (and other escape characters) within. 
+
+Strings can be defined surrounded by a single set of double quotes with escaped quotes (and other escape characters) within.
 
 <pre>
 s := "this is a \"test\".\nThis is only a test."
 </pre>
 
-Or for strings with non-escaped characters and/or spanning many lines, triple quotes can be used. 
+Or for strings with non-escaped characters and/or spanning many lines, triple quotes can be used.
 
 <pre>
 s := """this is a "test".
@@ -770,9 +770,9 @@ This is only a test."""
 	<a name="Syntax-Comments"></a>
 	<h3>Comments</h3>
 </td><td></td><td>
-	
 
-Comments of the //, /**/ and # style are supported. Examples: 
+
+Comments of the //, /**/ and # style are supported. Examples:
 
 <pre>
 a := b // add a comment to a line
@@ -783,13 +783,13 @@ b := 2
 */
 </pre>
 
-The "#" style is useful for unix scripts: 
+The "#" style is useful for unix scripts:
 
 <pre>
 #!/usr/local/bin/io
 </pre>
 
-That's it! You now know everything there is to know about Io's syntax. Control flow, objects, methods, exceptions are expressed with the syntax and semantics described above. 
+That's it! You now know everything there is to know about Io's syntax. Control flow, objects, methods, exceptions are expressed with the syntax and semantics described above.
 
 
 </div>
@@ -802,7 +802,7 @@ That's it! You now know everything there is to know about Io's syntax. Control f
 	<h2>Objects<a name="Objects"></a></h2>
 	<div class=indent>
 </td><td></td><td>
-	
+
 
 <!--
 <div class=quote>
@@ -817,10 +817,10 @@ In all other languages we've considered [Fortran, Algol60, Lisp, APL, Cobol, Pas
 	<a name="Objects-Overview"></a>
 	<h3>Overview</h3>
 </td><td></td><td>
-	
 
 
-Io's guiding design principle is simplicity and power through conceptual unification. 
+
+Io's guiding design principle is simplicity and power through conceptual unification.
 <p>
 
 <table class=infoTable cellpadding=2 cellspacing=0 border=0>
@@ -850,7 +850,7 @@ prototypes
 objects, classes, namespaces, locals
 </td>
 </tr>
- 
+
 <tr>
 <td valign=top>
 messages
@@ -867,10 +867,10 @@ operators, calls, assigns, var access
 	<a name="Objects-Prototypes"></a>
 	<h3>Prototypes</h3>
 </td><td></td><td>
-	
+
 
 In Io, everything is an object (including the locals storage of a block and the namespace itself) and all actions are messages (including assignment). Objects are composed of a list of key/value pairs called slots, and an internal list of objects from which it inherits called protos. A slot's key is a symbol (a unique immutable sequence) and its value can be any type of object.
- 
+
 <h4>clone and init</h4>
 New objects are made by cloning existing ones. A clone is an empty object that has the parent in its list of protos. A new instance's init slot will be activated which gives the object a chance to initialize itself. Like NewtonScript[3], slots in Io are create-on-write.
 
@@ -878,7 +878,7 @@ New objects are made by cloning existing ones. A clone is an empty object that h
 me := Person clone
 </pre>
 
-To add an instance variable or method, simply set it: 
+To add an instance variable or method, simply set it:
 
 <pre>
 myDog name := "rover"
@@ -893,15 +893,15 @@ When an object is cloned, its "init" slot will be called if it has one.
 	<a name="Objects-Inheritance"></a>
 	<h3>Inheritance</h3>
 </td><td></td><td>
-	
+
 
 When an object receives a message it looks for a matching slot, if not found, the lookup continues depth first recursively in its protos. Lookup loops are detected (at runtime) and avoided. If the matching slot contains an activatable object, such as a Block or CFunction, it is activated, if it contains any other type of value it returns the value. Io has no globals and the root object in the Io namespace is called the Lobby.
 <p>
-Since there are no classes, there's no difference between a subclass and an instance. Here's an example of creating the equivalent of a subclass: 
+Since there are no classes, there's no difference between a subclass and an instance. Here's an example of creating the equivalent of a subclass:
 
 <pre>
 Io> Dog := Object clone
-==> Object_0x4a7c0 
+==> Object_0x4a7c0
 </pre>
 
 The above code sets the Lobby slot "Dog" to a clone of the Object object; the protos list of this new object contains only a reference to Object, essentially indicating that a subclass of Object has been created. Instance variables and methods are inherited from the objects referenced in the protos list. If a slot is set, it creates a new slot in our object instead of changing the protos:
@@ -917,7 +917,7 @@ The above code sets the Lobby slot "Dog" to a clone of the Object object; the pr
 <div class=pagebreak></div>
 
 	<h4>Multiple Inheritance</h4>
-	
+
 
 You can add any number of protos to an object's protos list. When responding to a message, the lookup mechanism does a depth first search of the proto chain.
 
@@ -928,7 +928,7 @@ You can add any number of protos to an object's protos list. When responding to 
 	<a name="Objects-Methods"></a>
 	<h3>Methods</h3>
 </td><td></td><td>
-	
+
 
 A method is an anonymous function which, when called, creates an object to store its locals and sets the local's proto pointer and its self slot to the target of the message. The Object method method() can be used to create methods. Example:
 
@@ -936,7 +936,7 @@ A method is an anonymous function which, when called, creates an object to store
 method((2 + 2) print)
 </pre>
 
-An example of using a method in an object: 
+An example of using a method in an object:
 
 <pre>
 Dog := Object clone
@@ -953,13 +953,13 @@ The default return value of a block is the result of the last expression.
 
 <h4>Arguments</h4>
 
-Methods can also be defined to take arguments. Example: 
+Methods can also be defined to take arguments. Example:
 
 <pre>
 add := method(a, b, a + b)
 </pre>
 
-The general form is: 
+The general form is:
 
 <pre><i>
 method(&lt;arg name 0&gt;, &lt;arg name 1&gt;, ..., &lt;do message&gt;)
@@ -1041,12 +1041,12 @@ current object
 
 <h4>Variable Arguments</h4>
 
-The "call message" slot in locals can be used to access the unevaluated argument messages. Example of implementing if() within Io: 
+The "call message" slot in locals can be used to access the unevaluated argument messages. Example of implementing if() within Io:
 
 <pre>
 myif := method(
-    (call sender doMessage(call message argAt(0))) ifTrue( 
-    call sender doMessage(call message argAt(1))) ifFalse( 
+    (call sender doMessage(call message argAt(0))) ifTrue(
+    call sender doMessage(call message argAt(1))) ifFalse(
     call sender doMessage(call message argAt(2)))
 )
 
@@ -1060,7 +1060,7 @@ A shorter way to express this is to use the evalArgAt() method on the call objec
 <pre>
 myif := method(
     call evalArgAt(0) ifTrue(
-    call evalArgAt(1)) ifFalse( 
+    call evalArgAt(1)) ifFalse(
     call evalArgAt(2))
 )
 
@@ -1072,7 +1072,7 @@ myif(foo == bar, write("true\n"), write("false\n"))
 	<a name="Objects-Forward"></a>
 	<h3>Forward</h3>
 </td><td></td><td>
-	
+
 
 If an object doesn't respond to a message, it will invoke its "forward" method if it has one. Here's an example of how to print the information related lookup that failed:
 
@@ -1091,7 +1091,7 @@ MyObject forward := method(
 	<h3>Resend</h3>
 </td><td></td><td>
 
-Sends the current message to the receiver's protos with self as the context. Example: 
+Sends the current message to the receiver's protos with self as the context. Example:
 
 <pre>
 A := Object clone
@@ -1101,7 +1101,7 @@ B m := method(write("in B\n"); resend)
 B m
 </pre>
 
-will print: 
+will print:
 
 <pre>
 in B
@@ -1119,9 +1119,9 @@ For sending other messages to the receiver's proto, super is used.
 	<a name="Objects-Super"></a>
 	<h3>Super</h3>
 </td><td></td><td>
-	
 
-Sometimes it's necessary to send a message directly to a proto. Example: 
+
+Sometimes it's necessary to send a message directly to a proto. Example:
 
 <pre>
 Dog := Object clone
@@ -1142,7 +1142,7 @@ Both resend and super are implemented in Io.
 	<a name="Objects-Introspection"></a>
 	<h3>Introspection</h3>
 </td><td></td><td>
-	
+
 
 Using the following methods you can introspect the entire Io namespace. There are also methods for modifying any and all of these attributes at runtime.
 
@@ -1166,13 +1166,13 @@ Io> Dog protos map(type)
 
 <h4>getSlot</h4>
 
-The "getSlot" method can be used to get the value of a block in a slot without activating it: 
+The "getSlot" method can be used to get the value of a block in a slot without activating it:
 
 <pre>
 myMethod := Dog getSlot("bark")
 </pre>
 
-Above, we've set the locals object's "myMethod" slot to the bark method. It's important to remember that if you then want use the myMethod without activating it, you'll need to use the getSlot method: 
+Above, we've set the locals object's "myMethod" slot to the bark method. It's important to remember that if you then want use the myMethod without activating it, you'll need to use the getSlot method:
 
 <pre>
 otherObject newMethod := getSlot("myMethod")
@@ -1197,7 +1197,7 @@ Io> method(a, a * 2) code
 <tr><td align=right>
 	<h2>Control&nbsp;Flow<a name="Control-Flow"></a></h2>
 </td><td></td><td>
-	
+
 	<br><br><br><br><br>
 
 
@@ -1209,7 +1209,7 @@ Io> method(a, a * 2) code
 	<a name="Control-Flow-true-false-and-nil"></a>
 	<h3>true, false and nil</h3>
 </td><td></td><td>
-	
+
 
 
 There are singletons for true, false and nil. nil is typically used to indicate an unset or missing value.
@@ -1219,11 +1219,11 @@ There are singletons for true, false and nil. nil is typically used to indicate 
 	<a name="Control-Flow-Comparison"></a>
 	<h3>Comparison</h3>
 </td><td></td><td>
-	
+
 The comparison methods:
 
 <pre>
-==, !=, >=, <=, >, < 
+==, !=, >=, <=, >, <
 </pre>
 
 return either the true or false. The compare() method is used to implement the comparison methods and returns -1, 0 or 1 which mean less-than, equal-to or greater-than, respectively.
@@ -1234,13 +1234,13 @@ return either the true or false. The compare() method is used to implement the c
 	<h3>if, then, else</h3>
 </td><td></td><td>
 
-The if() method can be used in the form: 
+The if() method can be used in the form:
 
 <pre><i>
 if(&lt;condition&gt;, &lt;do message&gt;, &lt;else do message&gt;)
 </i></pre>
 
-Example: 
+Example:
 
 <pre>
 if(a == 10, "a is 10" print)
@@ -1248,25 +1248,25 @@ if(a == 10, "a is 10" print)
 
 The else argument is optional. The condition is considered false if the condition expression evaluates to false or nil, and true otherwise.
 <p>
-The result of the evaluated message is returned, so: 
+The result of the evaluated message is returned, so:
 
 <pre>
 if(y < 10, x := y, x := 0)
 </pre>
 
-is the same as: 
+is the same as:
 
 <pre>
 x := if(y < 10, y, 0)
 </pre>
 
-Conditions can also be used in this form: 
+Conditions can also be used in this form:
 
 <pre>
 if(y < 10) then(x := y) else(x := 2)
 </pre>
 
-elseif() is supported: 
+elseif() is supported:
 
 <pre>
 if(y < 10) then(x := y) elseif(y == 11) then(x := 0) else(x := 2)
@@ -1309,7 +1309,7 @@ loop("foo" println)
 	<a name="Control-Flow-Repeat"></a>
 	<h3>repeat</h3>
 </td><td></td><td>
-	
+
 The Number repeat method can be used to repeat a loop a given number of times.
 
 <pre>
@@ -1323,17 +1323,17 @@ The Number repeat method can be used to repeat a loop a given number of times.
 	<a name="Control-Flow-While"></a>
 	<h3>while</h3>
 </td><td></td><td>
-	
-Arguments: 
+
+Arguments:
 
 <pre>
 <i>while(&lt;condition&gt;, &lt;do message&gt;)</i></pre>
 
-Example: 
+Example:
 
 <pre>
 a := 1
-while(a < 10, 
+while(a < 10,
     a print
     a = a + 1
 )
@@ -1344,17 +1344,17 @@ while(a < 10,
 	<a name="Control-Flow-For"></a>
 	<h3>for</h3>
 </td><td></td><td>
-	
-Arguments: 
+
+Arguments:
 
 <pre><i>for(&lt;counter&gt;, &lt;start&gt;, &lt;end&gt;, &lt;optional step&gt;, &lt;do message&gt;)</i></pre>
 
 The start and end messages are only evaluated once, when the loop starts.
 
-Example: 
+Example:
 
 <pre>
-for(a, 0, 10, 
+for(a, 0, 10,
     a println
 )
 </pre>
@@ -1374,7 +1374,7 @@ Which would print:
 9
 </pre>
 
-To reverse the order of the loop, add a negative step: 
+To reverse the order of the loop, add a negative step:
 
 <pre>
 for(a, 10, 0, -1, a println)
@@ -1388,17 +1388,17 @@ Note: the first value will be the first value of the loop variable and the last 
 	<h3>break, continue</h3>
 </td><td></td><td>
 
-loop, repeat, while and for support the break and continue methods. Example: 
+loop, repeat, while and for support the break and continue methods. Example:
 
 <pre>
-for(i, 1, 10, 
+for(i, 1, 10,
     if(i == 3, continue)
     if(i == 7, break)
     i print
 )
 </pre>
 
-Output: 
+Output:
 
 <pre>
 12456
@@ -1410,8 +1410,8 @@ Output:
 	<a name="Control-Flow-Return"></a>
 	<h3>return</h3>
 </td><td></td><td>
-	
-Any part of a block can return immediately using the return method. Example: 
+
+Any part of a block can return immediately using the return method. Example:
 
 <pre>
 Io> test := method(123 print; return "abc"; 456 print)
@@ -1434,7 +1434,7 @@ Internally, break, continue and return all work by setting a IoState internal va
 
 <div class=indent>
 
-The Importer proto implements Io's built-in auto importer feature. If you put each of your proto's in their own file, and give the file the same name with and ".io" extension, the Importer will automatically import that file when the proto is first referenced. The Importer's default search path is the current working directory, but can add search paths using its addSearchPath() method. 
+The Importer proto implements Io's built-in auto importer feature. If you put each of your proto's in their own file, and give the file the same name with and ".io" extension, the Importer will automatically import that file when the proto is first referenced. The Importer's default search path is the current working directory, but can add search paths using its addSearchPath() method.
 
 </div>
 <br><br><br><br>
@@ -1443,7 +1443,7 @@ The Importer proto implements Io's built-in auto importer feature. If you put ea
 <tr><td align=right>
 	<h2>Concurrency<a name="Concurrency"></a></h2>
 </td><td></td><td>
-	
+
 <div class=indent>
 
 
@@ -1461,7 +1461,7 @@ Io uses coroutines (user level cooperative threads), instead of preemptive OS le
 	<a name="Concurrency-Scheduler"></a>
 	<h3>Scheduler</h3>
 </td><td></td><td>
-	
+
 
 
 The Scheduler object is responsible for resuming coroutines that are yielding. The current scheduling system uses a simple first-in-first-out policy with no priorities.
@@ -1479,12 +1479,12 @@ An actor is an object with its own thread (in our case, its own coroutine) which
 Examples:
 
 <pre>
-result := self foo // synchronous 
+result := self foo // synchronous
 futureResult := self futureSend(foo) // async, immediately returns a Future
 self asyncSend(foo) // async, immediately returns nil
 </pre>
 
-When an object receives an asynchronous message it puts the message in its queue and, if it doesn't already have one, starts a coroutine to process the messages in its queue. Queued messages are processed sequentially in a first-in-first-out order. Control can be yielded to other coroutines by calling "yield". Example: 
+When an object receives an asynchronous message it puts the message in its queue and, if it doesn't already have one, starts a coroutine to process the messages in its queue. Queued messages are processed sequentially in a first-in-first-out order. Control can be yielded to other coroutines by calling "yield". Example:
 
 <pre>
 obj1 := Object clone
@@ -1496,7 +1496,7 @@ while(Scheduler yieldingCoros size > 1, yield)
 
 This would print "112233".
 
-Here's a more real world example: 
+Here's a more real world example:
 
 <pre>
 HttpServer handleRequest := method(aSocket,
@@ -1549,7 +1549,7 @@ Io> futureSend(q); nil
 </td><td></td><td>
 
 
-An object will automatically yield between processing each of its asynchronous messages. The yield method only needs to be called if a yield is required during an asynchronous message execution. 
+An object will automatically yield between processing each of its asynchronous messages. The yield method only needs to be called if a yield is required during an asynchronous message execution.
 
 <h4>Pause and Resume</h4>
 
@@ -1562,7 +1562,7 @@ It's also possible to pause and resume an object. See the concurrency methods of
 <tr><td align=right>
 	<h2>Exceptions<a name="Exceptions"></a></h2>
 </td><td></td><td>
-	
+
 <div class=indent>
 
 <br><br><br><br>
@@ -1571,10 +1571,10 @@ It's also possible to pause and resume an object. See the concurrency methods of
 	<a name="Exceptions-Raise"></a>
 	<h3>Raise</h3>
 </td><td></td><td>
-	
 
 
-An exception can be raised by calling raise() on an exception proto. 
+
+An exception can be raised by calling raise() on an exception proto.
 
 <pre>
 Exception raise("generic foo exception")
@@ -1585,7 +1585,7 @@ Exception raise("generic foo exception")
 exceptionProto raise(&lt;description&gt;)
 </i></pre>
 
-There are three predefined children of the Exception proto: Error, Warning and Notification. Examples: 
+There are three predefined children of the Exception proto: Error, Warning and Notification. Examples:
 
 <pre>
 Exception raise("generic foo exception")
@@ -1600,10 +1600,10 @@ Error raise("Not enough memory")
 	<a name="Exceptions-Try-and-Catch"></a>
 	<h3>Try and Catch</h3>
 </td><td></td><td>
-	
 
 
-To catch an exception, the try() method of the Object proto is used. try() will catch any exceptions that occur within it and return the caught exception or nil if no exception is caught. 
+
+To catch an exception, the try() method of the Object proto is used. try() will catch any exceptions that occur within it and return the caught exception or nil if no exception is caught.
 
 <pre><i>
 e := try(&lt;doMessage&gt;)
@@ -1614,7 +1614,7 @@ To catch a particular exception, the Exception catch() method can be used. Examp
 <pre>
 e := try(
     // ...
-) 
+)
 
 e catch(Exception,
     writeln(e coroutine backTraceString)
@@ -1632,12 +1632,12 @@ The first argument to catch indicates which types of exceptions will be caught. 
 </td><td></td><td>
 
 
-To re-raise an exception caught by try(), use the pass method. This is useful to pass the exception up to the next outer exception handler, usually after all catches failed to match the type of the current exception: 
+To re-raise an exception caught by try(), use the pass method. This is useful to pass the exception up to the next outer exception handler, usually after all catches failed to match the type of the current exception:
 
 <pre>
 e := try(
     // ...
-) 
+)
 
 e catch(Error,
     // ...
@@ -1652,9 +1652,9 @@ e catch(Error,
 	<a name="Exceptions-Custom"></a>
 	<h3>Custom Exceptions</h3>
 </td><td></td><td>
-	
 
-Custom exception types can be implemented by simply cloning an existing Exception type: 
+
+Custom exception types can be implemented by simply cloning an existing Exception type:
 
 <pre>
 MyErrorType := Error clone
@@ -1684,18 +1684,18 @@ This document is not meant as a reference manual, but an overview of the base pr
 	<a name="Primitives-Object"></a>
 	<h3>Object</h3>
 </td><td></td><td>
-	
+
 
 
 <h4>The ? Operator</h4>
 
-Sometimes it's desirable to conditionally call a method only if it exists (to avoid raising an exception). Example: 
+Sometimes it's desirable to conditionally call a method only if it exists (to avoid raising an exception). Example:
 
 <pre>
 if(obj getSlot("foo"), obj foo)
 </pre>
 
-Putting a "?" before a message has the same effect: 
+Putting a "?" before a message has the same effect:
 
 <pre>
 obj ?foo
@@ -1706,7 +1706,7 @@ obj ?foo
 	<a name="Primitives-List"></a>
 	<h3>List</h3>
 </td><td></td><td>
-	
+
 
 
 A List is an array of references and supports all the standard array manipulation and enumeration methods. Examples:
@@ -1717,7 +1717,7 @@ Create an empty list:
 a := List clone
 </pre>
 
-Create a list of arbitrary objects using the list() method: 
+Create a list of arbitrary objects using the list() method:
 
 <pre>
 a := list(33, "a")
@@ -1840,7 +1840,7 @@ The map and select methods return new lists. To do the same operations in-place,
 	<a name="Primitives-Sequence"></a>
 	<h3>Sequence</h3>
 </td><td></td><td>
-	
+
 
 
 In Io, an immutable Sequence is called a Symbol and a mutable Sequence is the equivalent of a Buffer or String. Literal strings(ones that appear in source code surrounded by quotes) are Symbols. Mutable operations cannot be performed on Symbols, but one can make mutable copy of a Symbol calling its asMutable method and then perform the mutation operations on the copy.
@@ -1915,6 +1915,20 @@ Splitting by other characters is possible as well.
 ==> list("a f", "w good m", "n")
 </pre>
 
+Join list's items in a a string :
+
+<pre>
+list("the", "quick", "brown", "fox") join
+==> thequickbrownfox
+</pre>
+
+To make it better, it isd possible to use an argument :
+
+<pre>
+list("the", "quick", "brown", "fox") join(" ")
+==> the quick brown fox
+</pre>
+
 Converting to number:
 
 <pre>
@@ -1942,7 +1956,7 @@ Interpolate will eval anything with #{} as Io code in the local context. The cod
 	<a name="Primitives-Ranges"></a>
 	<h3>Ranges</h3>
 </td><td></td><td>
-	
+
 
 A range is a container containing a start and an end point, and instructions on how to get from the start to the end. Using Ranges is often convenient when creating large lists of sequential data as they can be easily converted to lists, or as a replacement for the for() method.
 
@@ -1971,7 +1985,7 @@ The above will print 1 through 5, each on its own line.
 	<a name="Primitives-File"></a>
 	<h3>File</h3>
 </td><td></td><td>
-	
+
 
 
 The methods openForAppending, openForReading, or openForUpdating are used for opening files. To erase an existing file before opening a new open, the remove method can be used. Example:
@@ -2125,7 +2139,7 @@ url := URL with("http://example.com/")
 Fetching an URL:
 
 <pre>
-data := url fetch  
+data := url fetch
 </pre>
 
 Streaming a URL to a file:
@@ -2139,7 +2153,7 @@ A simple whois client:
 <pre>
 whois := method(host,
     socket := Socket clone \
-		setHostName("rs.internic.net") setPort(43) 
+		setHostName("rs.internic.net") setPort(43)
     socket connect streamWrite(host, "\n")
     while(socket streamReadNextChunk, nil)
     return socket readBuffer
@@ -2154,10 +2168,10 @@ WebRequest := Object clone do(
         aSocket streamReadNextChunk
         request := aSocket readBuffer \
 			betweenSeq("GET ", " HTTP")
-        f := File with(request) 
-        if(f exists, 
+        f := File with(request)
+        if(f exists,
 			f streamTo(aSocket)
-		, 
+		,
 			aSocket streamWrite("not found")
 		)
         aSocket close
@@ -2166,7 +2180,7 @@ WebRequest := Object clone do(
 
 WebServer := Server clone do(
     setPort(8000)
-    handleSocket := method(aSocket, 
+    handleSocket := method(aSocket,
         WebRequest clone asyncSend(handleSocket(aSocket))
     )
 )
@@ -2249,9 +2263,9 @@ So for this example, Io is about three times faster than plain C.
 Object
 setIsActivatable
 forward
-introspection 
+introspection
 getSlot, slotSummary, docs, namespaces
-Block 
+Block
 setScope()
 setPassStops()
 setDoesCatchStops()
@@ -2289,12 +2303,12 @@ precedence ordering
 	<a name="Unicode-Sequences"></a>
 	<h3>Sequences</h3>
 </td><td></td><td>
-	
-	
+
+
 
 
 In Io, symbols, strings, and vectors are unified into a single Sequence prototype which is an array of any available hardware data type such as:
- 
+
 <pre>
 uint8, uint16, uint32, uint64
 int8, int16, int32, int64
@@ -2307,7 +2321,7 @@ float32, float64
 	<a name="Unicode-Encodings"></a>
 	<h3>Encodings</h3>
 </td><td></td><td>
-	
+
 
 
 Also, a Sequence has a encoding attribute, which can be:
@@ -2328,7 +2342,7 @@ Except for input and output, all strings should be kept in a fixed character wid
 	<a name="Unicode-Source-Code"></a>
 	<h3>Source&nbsp;Code</h3>
 </td><td></td><td>
-	
+
 
 Io source files are assumed to be in UTF8 (of which ASCII is a subset). When a source file is read, its symbols and strings are stored in Sequences in their minimal fixed character width encoding. Examples:
 
@@ -2360,7 +2374,7 @@ Io> "π" itemSize
 	<a name="Unicode-Conversion"></a>
 	<h3>Conversion</h3>
 </td><td></td><td>
-	
+
 
 
 The Sequence object has a number of conversion methods:
@@ -2394,7 +2408,7 @@ asUCS4
 	<a name="Embedding-Conventions"></a>
 	<h3>Conventions</h3>
 </td><td></td><td>
-	
+
 
 
 Io's C code is written using object oriented style conventions where structures are treated as objects and functions as methods. Familiarity with these may help make the embedding APIs easier to understand.
@@ -2406,7 +2420,7 @@ Member names are words that begin with a lower case character with successive wo
 Example:
 
 <pre>
-typdef struct 
+typdef struct
 {
     char *firstName;
     char *lastName;
@@ -2431,10 +2445,10 @@ All methods (except new) have the structure (the "object") as the first argument
 Examples:
 
 <pre>
-int List_count(List *self); // no argument 
+int List_count(List *self); // no argument
 void List_add_(List *self, void *item); // one argument
-void Dictionary_key_value_(Dictionary *self, 
-	char *key, char *value); 
+void Dictionary_key_value_(Dictionary *self,
+	char *key, char *value);
 </pre>
 
 <h4>File Names</h4>
@@ -2450,11 +2464,11 @@ Each structure has its own separate .h and .c files. The names of the files are 
 	<a name="Embedding-IoState"></a>
 	<h3>IoState</h3>
 </td><td></td><td>
-	
-	
 
 
-An IoState can be thought of as an instance of an Io "virtual machine", although "virtual machine" is a less appropriate term because it implies a particular type of implementation. 
+
+
+An IoState can be thought of as an instance of an Io "virtual machine", although "virtual machine" is a less appropriate term because it implies a particular type of implementation.
 
 <h4>Multiple states</h4>
 
@@ -2502,19 +2516,19 @@ There are some macro short cuts to help with quick type checks:
 if (ISNUMBER(v))
 {
     printf("result is the number %f", IoNumber_asFloat(v));
-} 
+}
 else if(ISSEQ(v))
 {
     printf("result is the string %s", IoSeq_asCString(v));
 }
 else if(ISLIST(v))
 {
-    printf("result is a list with %i elements", 
+    printf("result is a list with %i elements",
 		IoList_rawSize(v));
 }
 </pre>
 
-Note that return values are always proper Io objects (as all values are objects in Io). You can find the C level methods (functions like IoList_rawSize()) for these objects in the header files in the folder Io/libs/iovm/source. 
+Note that return values are always proper Io objects (as all values are objects in Io). You can find the C level methods (functions like IoList_rawSize()) for these objects in the header files in the folder Io/libs/iovm/source.
 
 </div>
 
@@ -2553,7 +2567,7 @@ Documentation on how to write bindings/addons forthcoming..
 	<a name="Appendix-Grammar"></a>
 	<h3>Grammar</h3>
 </td><td></td><td>
-	
+
 
 
 <h4>messages</h4>
@@ -2569,8 +2583,8 @@ argument ::= [wcpad] expression [wcpad]
 <pre>
 symbol ::= Identifier | number | Operator | quote
 Identifier ::= { letter | digit | "_" }
-Operator ::= { ":" | "." | "'" | "~" | "!" | "@" | "$" | 
-"%" | "^" | "&" | "*" | "-" | "+" | "/" | "=" | "{" | "}" | 
+Operator ::= { ":" | "." | "'" | "~" | "!" | "@" | "$" |
+"%" | "^" | "&" | "*" | "-" | "+" | "/" | "=" | "{" | "}" |
 "[" | "]" | "|" | "\" | "<" | ">" | "?" }
 </pre>
 
@@ -2604,7 +2618,7 @@ poundComment ::= "#" [not("\n")] "\n"
 number ::= HexNumber | Decimal
 HexNumber ::= "0" anyCase("x") { [ digit | hexLetter ] }
 hexLetter ::= "a" | "b" | "c" | "d" | "e" | "f"
-Decimal ::= digits | "." digits | 
+Decimal ::= digits | "." digits |
 	digits "." digits ["e" [-] digits]
 </pre>
 
@@ -2639,7 +2653,7 @@ Io is the product of all the talented folks who taken the time and interest to m
 	<a name="Appendix-References"></a>
 	<h3>References</h3>
 </td><td></td><td>
-	
+
 
 
 
@@ -2648,7 +2662,7 @@ Io is the product of all the talented folks who taken the time and interest to m
 <td style="width:1.5em" valign=top>
 1
 </td>
-<td>	
+<td>
 Goldberg, A et al. <br>
 Smalltalk-80: The Language and Its Implementation<br>
 Addison-Wesley, 1983<br>
@@ -2714,7 +2728,7 @@ MIT Press, 1960 <br>
 6
 </td>
 <td>
-Ierusalimschy, R, et al. <br>	
+Ierusalimschy, R, et al. <br>
 Lua: an extensible extension language <br>
 John Wiley & Sons, 1996 <br>
 </td>
@@ -2727,7 +2741,7 @@ John Wiley & Sons, 1996 <br>
 	<a name="Appendix-License"></a>
 	<h3>License</h3>
 </td><td></td><td>
-	
+
 
 
 Copyright 2006-2010 Steve Dekorte. All rights reserved.
@@ -2738,11 +2752,11 @@ This documentation is provided "as is" and any express or implied warranties, in
 
 </div>
 <p><br><br><br>
-	
+
 	</td>
 	</tr>
 	</table>
-	
+
 </td>
 </tr>
 </table>
